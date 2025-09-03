@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Host dependent common settings -->
+  <include name="host.xml" />
+
+  <!-- Build Infra-->
+  <project name="build-common" path="build-scripts/common" />
+  <project name="build-ichiban" path="build-scripts/ichiban" revision="main"/>
+  <!-- copybara:strip_begin(partners must not use or see build-internal) -->
+  <project name="build-internal" path="build-scripts/internal" />
+  <!-- copybara:strip_end -->
+  <!-- copybara:strip_begin(partners must not use or see kokoro) -->
+  <project name="kokoro" path="build-scripts/kokoro" />
+  <!-- copybara:strip_end -->
+
+  <!-- Sources for Min Platform-->
+  <project name="edk2-google" path="edk2-google"/>
+  <project name="build-edk2-unit-tests" path="build-scripts/edk2-unit-tests"/>
+  <project name="third_party/intel/edk2" path="Edk2" revision="ichiban" />
+  <project name="third_party/intel/edk2-platforms" path="Edk2Platforms" revision="ichiban" />
+
+  <project name="third_party/intel/oakstream-fdbin" groups="ichiban" revision="ichiban" />
+  <project name="third_party/intel/oakstream-ipsd" groups="ichiban" revision="ichiban" />
+  <project name="third_party/intel/oakstream-memory-training" groups="ichiban" revision="ichiban" />
+  <project name="third_party/intel/oakstream-platform" groups="ichiban" revision="ichiban" />
+
+  <project name="third_party/brotli" path="Edk2/BaseTools/Source/C/BrotliCompress/brotli" revision="ichiban/main" />
+  <project name="third_party/brotli" path="Edk2/MdeModulePkg/Library/BrotliCustomDecompressLib/brotli" revision="ichiban/main" />
+  <project name="third_party/berkeley-softfloat-3" path="Edk2/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3" revision="ichiban/main" />
+  <project name="third_party/cmocka" path="Edk2/UnitTestFrameworkPkg/Library/CmockaLib/cmocka" revision="ichiban/main" />
+  <project name="third_party/google/googletest" path="Edk2/UnitTestFrameworkPkg/Library/GoogleTestLib/googletest" revision="ichiban/main" />
+  <project name="third_party/golang/jansson" path="Edk2/RedfishPkg/Library/JsonLib/jansson" revision="ichiban/main" />
+  <project name="third_party/libspdm" path="Edk2/SecurityPkg/DeviceSecurity/SpdmLib/libspdm" revision="ichiban/main" />
+  <project name="third_party/mbedtls" path="Edk2/CryptoPkg/Library/MbedTlsLib/mbedtls" revision="ichiban/main" />
+  <project name="third_party/mipisyst" path="Edk2/MdePkg/Library/MipiSysTLib/mipisyst" revision="ichiban/main" />
+  <project name="third_party/openssl" path="Edk2/CryptoPkg/Library/OpensslLib/openssl" revision="ichiban/main" />
+  <project name="third_party/oniguruma" path="Edk2/MdeModulePkg/Universal/RegularExpressionDxe/oniguruma" revision="ichiban/main" />
+  <project name="third_party/pylibfdt" path="Edk2/MdePkg/Library/BaseFdtLib/libfdt" revision="ichiban/main" />
+  <project name="third_party/edk2-subhook" path="Edk2/UnitTestFrameworkPkg/Library/SubhookLib/subhook" revision="ichiban/main" />
+
+  <!-- Sources for Nerf's initramfs-->
+  <include name="nerf-initramfs.xml" />
+
+  <!-- Nerf Kernel -->
+  <project name="kernel/icebreaker" path="third_party/linux" revision="ovss/6.6" />
+  <!-- UEFI Payload -->
+  <include name="uefipayload.xml" />
+  <project name="third_party/cmocka" path="third_party/uefipayload/edk2/UnitTestFrameworkPkg/Library/CmockaLib/cmocka" revision="refs/tags/cmocka-1.1.5" />
+</manifest>
